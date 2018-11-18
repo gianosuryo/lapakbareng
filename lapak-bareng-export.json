@@ -1,0 +1,796 @@
+{
+  "barang" : [ {
+    "harga" : 4500,
+    "id_barang" : "0",
+    "id_toko" : "4",
+    "kuantitas" : 20,
+    "link" : "https://3.bp.blogspot.com/-lDOHCAdaVW8/VrhXbFTaLeI/AAAAAAAADtA/gjG2ytD118I/s1600/Resep%2BAyam%2BLodho%2BKhas%2BPonorogo.jpg",
+    "nama" : "Ayam Lodho"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "1",
+    "id_toko" : "2",
+    "kuantitas" : 20,
+    "link" : "http://3.bp.blogspot.com/-4K8ST-5GYsQ/Vk_0NZJDGqI/AAAAAAAAChE/pXoxETQtUQ0/s1600/Resep%2BPlecing%2BAyam%2BKhas%2BNTB.jpg",
+    "nama" : "Ayam Plecingan"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "2",
+    "id_toko" : "2",
+    "kuantitas" : 20,
+    "link" : "https://resepdanmakanan.com/wp-content/uploads/2016/06/Resep-Ayam-Tangkap-Banda-Aceh-Lezat.jpg",
+    "nama" : "Ayam Tangkap"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "3",
+    "id_toko" : "2",
+    "kuantitas" : 20,
+    "link" : "http://www.dapurresepmasakan.com/wp-content/uploads/2014/05/resep-masakan-bebek-betutu-770x430.jpg",
+    "nama" : "Bebek Betutu"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "4",
+    "id_toko" : "2",
+    "kuantitas" : 20,
+    "link" : "https://3.bp.blogspot.com/-lDOHCAdaVW8/VrhXbFTaLeI/AAAAAAAADtA/gjG2ytD118I/s1600/Resep%2BAyam%2BLodho%2BKhas%2BPonorogo.jpg",
+    "nama" : "Bebek Geprek"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "5",
+    "id_toko" : "10",
+    "kuantitas" : 20,
+    "link" : "https://cdn-image.myrecipes.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/chicken-cordon-bleu.jpg?itok=wzSI26Rq",
+    "nama" : "Chicken Cordon Bleu"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "3",
+    "id_toko" : "0",
+    "kuantitas" : 20,
+    "link" : "https://merahputih.com/media/2015/10/01/j8ihP2BLTK1443678915.jpg",
+    "nama" : "Bakso Campur Special"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "7",
+    "id_toko" : "0",
+    "kuantitas" : 20,
+    "link" : "https://img-global.cpcdn.com/003_recipes/1d2c1f78bebe4132/751x532cq70/photo.jpg",
+    "nama" : "Bakso Kwetiaw"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "8",
+    "id_toko" : "0",
+    "kuantitas" : 20,
+    "link" : "https://selerasa.com/images/mie/Mie_ayam/20-mie-ayam-bakso-pangsit.jpg",
+    "nama" : "Bakso Pangsit Goreng"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "9",
+    "id_toko" : "0",
+    "kuantitas" : 20,
+    "link" : "http://farlys.com/wp-content/uploads/Resep-Chinese-Food-Bakso-Vegetarian-Goreng.jpg",
+    "nama" : "Bakso Goreng"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "10",
+    "id_toko" : "0",
+    "kuantitas" : 20,
+    "link" : "https://media.foody.id/res/g5/41528/prof/s576x330/foody-mobile-133_bakso-jpg-671-635924409515100160.jpg",
+    "nama" : "Bakso Campur"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "11",
+    "id_toko" : "0",
+    "kuantitas" : 20,
+    "link" : "https://i0.wp.com/www.infopeluangusaharumahan.com/wp-content/uploads/2017/11/bakso-urat-solo.jpg?resize=640%2C640",
+    "nama" : "Bakso Urat"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "12",
+    "id_toko" : "0",
+    "kuantitas" : 20,
+    "link" : "https://media.foody.id/res/g6/57668/prof/s576x330/foody-mobile-img_3908web-jpg-748-636015087998178160.jpg",
+    "nama" : "Bakso Kotak"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "13",
+    "id_toko" : "0",
+    "kuantitas" : 20,
+    "link" : "http://www.dapurkobe.co.id/wp-content/uploads/bakso-bakar-kobe.jpg",
+    "nama" : "Bakso Bakar"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "14",
+    "id_toko" : "0",
+    "kuantitas" : 20,
+    "link" : "https://services.sportourism.id/fileload/warung-bu-krisjpg-6q4n.jpg?q=75",
+    "nama" : "Bakso Penyet Komplit"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "15",
+    "id_toko" : "5",
+    "kuantitas" : 20,
+    "link" : "https://3.bp.blogspot.com/-SX_54-W8TA8/V_w_YVzXLbI/AAAAAAAAyMg/Kbtvs3uojJsYQb_YL5iDvIdF4_c_yCeIQCLcB/s1600/burger-king-bacon-king.jpg",
+    "nama" : "Bacon King"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "16",
+    "id_toko" : "5",
+    "kuantitas" : 20,
+    "link" : "https://3.bp.blogspot.com/-SX_54-W8TA8/V_w_YVzXLbI/AAAAAAAAyMg/Kbtvs3uojJsYQb_YL5iDvIdF4_c_yCeIQCLcB/s1600/burger-king-bacon-king.jpg",
+    "nama" : "Jalapeno King"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "17",
+    "id_toko" : "5",
+    "kuantitas" : 20,
+    "link" : "https://bk-ca-prd.s3.amazonaws.com/sites/burgerking.ca/files/02750-2%20BK_Web_DblQtrPndKing_500x540px_CR_0.png",
+    "nama" : "Quarter Pound King"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "18",
+    "id_toko" : "5",
+    "kuantitas" : 20,
+    "link" : "https://www.yumyumfast.com/wphome/wp-content/uploads/2018/02/RodeoKing.png",
+    "nama" : "Rodeo King"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "19",
+    "id_toko" : "5",
+    "kuantitas" : 20,
+    "link" : "https://img1.mashed.com/img/gallery/what-you-need-to-know-about-burger-kings-new-sourdough-king/intro-1522685441.jpg",
+    "nama" : "Sourdough King"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "20",
+    "id_toko" : "5",
+    "kuantitas" : 20,
+    "link" : "https://3.bp.blogspot.com/-txfYdDud53U/WZOfrxquPNI/AAAAAAAA4VY/ex0QWe9r3wkWI00_caZVnO0FYriAblg2wCLcBGAs/s1600/burger-king-whopper.jpg",
+    "nama" : "Whopper"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "21",
+    "id_toko" : "10",
+    "kuantitas" : 20,
+    "link" : "https://i0.wp.com/www.gulalives.co/wp-content/uploads/2016/04/makanan-tradisional-indonesia-khas-aceh-karee-kameng.jpg?resize=640%2C320",
+    "nama" : "Karee Kameng"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "22",
+    "id_toko" : "3",
+    "kuantitas" : 20,
+    "link" : "http://infokuliner.com/wp-content/uploads/2015/09/Cara-Membuat-Kwetiau-Goreng-Spesial-Lezat.jpg",
+    "nama" : "Kwetiau Kerang"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "23",
+    "id_toko" : "3",
+    "kuantitas" : 20,
+    "link" : "https://cdns.klimg.com/vemale.com/headline/650x325/2017/11/resep-pempek-tanpa-ikan-tapi-tetap-sedap.jpg",
+    "nama" : "Pempek"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "24",
+    "id_toko" : "3",
+    "kuantitas" : 20,
+    "link" : "https://media.travelingyuk.com/wp-content/uploads/2018/02/Seblak-Lobster-Solo.jpg",
+    "nama" : "Seblak Lobster"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "25",
+    "id_toko" : "3",
+    "kuantitas" : 20,
+    "link" : "http://blog.gogonesia.com/wp-content/uploads/2015/06/bu-sie-itek-x.jpg",
+    "nama" : "Sie Itek"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "26",
+    "id_toko" : "3",
+    "kuantitas" : 20,
+    "link" : "https://citarasaindonesia.co.id/uploads/media/recipe/0001/01/thumb_691_recipe_detail.jpeg",
+    "nama" : "Tekwan"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "27",
+    "id_toko" : "3",
+    "kuantitas" : 20,
+    "link" : "https://cache.gmo2.sistacafe.com/images/uploads/content_image/image/670075/1528631606-20170522-black-sesame-ice-cream-vicky-wasik-20.jpg",
+    "nama" : "Black Sesame Ice Cream"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "28",
+    "id_toko" : "3",
+    "kuantitas" : 20,
+    "link" : "http://assets.kraftfoods.com/recipe_images/opendeploy/109477_MXM_K55165V6_OR1_CR_640x428.jpg",
+    "nama" : "Frozen Strawberry"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "29",
+    "id_toko" : "3",
+    "kuantitas" : 20,
+    "link" : "http://www.thejennyevolution.com/wp-content/uploads/2016/08/Grape-Sorbet.jpg",
+    "nama" : "Grape Sherbet"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "30",
+    "id_toko" : "10",
+    "kuantitas" : 20,
+    "link" : "http://wppullzone1.epicmatcha.netdna-cdn.com/wp-content/uploads/2016/09/matcha-green-tea-ice-cream.jpg",
+    "nama" : "Matcha Ice Cream"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "31",
+    "id_toko" : "10",
+    "kuantitas" : 20,
+    "link" : "https://s3-ap-southeast-1.amazonaws.com/wheretoeat-review/19-sushitei/sushi-tei-green-tea-icecream.jpg",
+    "nama" : "Matcha Nama Chocolate Ice Cream"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "32",
+    "id_toko" : "10",
+    "kuantitas" : 20,
+    "link" : "https://burpple-1.imgix.net/foods/cd65bd94ebf1520a88632117_original.?w=645&dpr=1&fit=crop&q=80",
+    "nama" : "Shiratama Azuki"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "33",
+    "id_toko" : "10",
+    "kuantitas" : 20,
+    "link" : "https://grapee.jp/en/wp-content/uploads/13563_05.jpg",
+    "nama" : "Shiratama Zenzai"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "34",
+    "id_toko" : "10",
+    "kuantitas" : 20,
+    "link" : "https://lh6.googleusercontent.com/-DKPu9jcoJPg/TXtjlgrsJsI/AAAAAAAAHRE/tt_-JyQ8hjA/s1600/mille+feuille+4.jpg",
+    "nama" : "Strawberry Mille-Feuille Ice Cream"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "35",
+    "id_toko" : "10",
+    "kuantitas" : 20,
+    "link" : "https://tokhoe.com/wp-content/uploads/2018/01/chiec-banh-mochi-nhieu-nguoi-dam-hoa-ra-lai-la-thu-pham-gay-ra-hang-chuc-cai-chet-va-nguyen-nhan-thuc-su-khong-ai-ngo4.jpg",
+    "nama" : "Yukimi Daifuku"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "36",
+    "id_toko" : "10",
+    "kuantitas" : 20,
+    "link" : "https://www.justonecookbook.com/wp-content/uploads/2014/11/Yuzu-Sorbet.jpg",
+    "nama" : "Yuzu Sherbet"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "37",
+    "id_toko" : "4",
+    "kuantitas" : 20,
+    "link" : "https://atmedia.imgix.net/742cdd4738d4d0771cf05b715f7dbad3630e39e0?auto=format&q=45&w=600.0&h=750.0&fit=max&cs=strip",
+    "nama" : "Butter Chicken"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "38",
+    "id_toko" : "2",
+    "kuantitas" : 20,
+    "link" : "https://www.indianhealthyrecipes.com/wp-content/uploads/2012/11/gulab-jamun-recipe.jpg",
+    "nama" : "Gulab Jamun"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "39",
+    "id_toko" : "2",
+    "kuantitas" : 20,
+    "link" : "https://static01.nyt.com/images/2017/02/21/dining/21COOKING-HUMMUS1/21COOKING-HUMMUS1-articleLarge.jpg",
+    "nama" : "Hummus"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "40",
+    "id_toko" : "2",
+    "kuantitas" : 20,
+    "link" : "https://www.indianhealthyrecipes.com/wp-content/uploads/2013/01/idli-recipe-1.jpg",
+    "nama" : "Idli"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "41",
+    "id_toko" : "2",
+    "kuantitas" : 20,
+    "link" : "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/%D9%82%D8%B7%D8%A7%D9%8A%D9%81_%D8%B9%D8%B5%D8%A7%D9%81%D9%8A%D8%B1%D9%8A2.jpg/1200px-%D9%82%D8%B7%D8%A7%D9%8A%D9%81_%D8%B9%D8%B5%D8%A7%D9%81%D9%8A%D8%B1%D9%8A2.jpg",
+    "nama" : "Katayef"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "42",
+    "id_toko" : "2",
+    "kuantitas" : 20,
+    "link" : "https://www.ndtv.com/cooks/images/chicken-kathi-roll_620.jpg",
+    "nama" : "Kathi Roll"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "43",
+    "id_toko" : "2",
+    "kuantitas" : 20,
+    "link" : "https://www.rotinrice.com/wp-content/uploads/2014/08/nasi-biryani-1.jpg",
+    "nama" : "Nasi Biryani"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "44",
+    "id_toko" : "2",
+    "kuantitas" : 20,
+    "link" : "http://www.palmia.co.id/media/recipe/medium/0dd0dc65af50d243a646a620cc07818f.jpg",
+    "nama" : "Kebab"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "45",
+    "id_toko" : "2",
+    "kuantitas" : 20,
+    "link" : "https://i1.wp.com/notepam.com/wp-content/uploads/2017/10/resep-nasi-kebuli-kambing.jpg?fit=700%2C500&ssl=1",
+    "nama" : "Nasi Kebuli"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "46",
+    "id_toko" : "2",
+    "kuantitas" : 20,
+    "link" : "http://www.dishesguru.com/uploads/recipe/aloo-papri-chaat-810.jpg",
+    "nama" : "Papri Chaat"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "47",
+    "id_toko" : "2",
+    "kuantitas" : 20,
+    "link" : "https://media.karousell.com/media/photos/products/2017/12/22/roti_maryam_frozen_1513894194_264444a2.jpg",
+    "nama" : "Roti Maryam"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "48",
+    "id_toko" : "2",
+    "kuantitas" : 20,
+    "link" : "https://ecs7.tokopedia.net/img/cache/700/product-1/2015/1/19/187234/187234_571f16aa-9f9d-11e4-9919-63c54908a8c2.jpg",
+    "nama" : "Sambosa"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "49",
+    "id_toko" : "2",
+    "kuantitas" : 20,
+    "link" : "https://asianinspirations.com.au/wp-content/uploads/2017/05/V3eAsJm6S9CvbohlNjCG_full_R00039_Black-Pepper-Beef-Stir-Fry-656x437.jpg",
+    "nama" : "Beef Blackpepper"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "49",
+    "id_toko" : "8",
+    "kuantitas" : 20,
+    "link" : "https://soulmates.theguardian.com/blog/wp-content/uploads/images/Food-3.jpg",
+    "nama" : "Beef Nambayaki"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "50",
+    "id_toko" : "8",
+    "kuantitas" : 20,
+    "link" : "https://rasamalaysia.com/wp-content/uploads/2014/09/teriyaki_beef3.jpg",
+    "nama" : "Beef Teriyaki"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "51",
+    "id_toko" : "8",
+    "kuantitas" : 20,
+    "link" : "https://images.summitmedia-digital.com/yummyph/images/2017/12/06/beef-bulgogi-topping.jpg",
+    "nama" : "Bulgogi Beef Rice"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "52",
+    "id_toko" : "10",
+    "kuantitas" : 20,
+    "link" : "http://i1.wp.com/malang.foodsessive.com/wp-content/uploads/2016/07/chicken-nanbanyaki-175k.jpg?resize=600%2C600",
+    "nama" : "Chicken Nanbanyaki"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "53",
+    "id_toko" : "10",
+    "kuantitas" : 20,
+    "link" : "https://www.rotinrice.com/wp-content/uploads/2011/05/Gyudon-1.jpg",
+    "nama" : "Gyudon With Egg"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "54",
+    "id_toko" : "10",
+    "kuantitas" : 20,
+    "link" : "http://tasteasianfood.com/wp-content/uploads/2016/08/hs4.jpg",
+    "nama" : "Hambagu"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "55",
+    "id_toko" : "10",
+    "kuantitas" : 20,
+    "link" : "https://s3-media4.fl.yelpcdn.com/bphoto/_NOhCuDdxa_rAtCHQw7Smg/o.jpg",
+    "nama" : "Karaage Blackpepper"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "56",
+    "id_toko" : "10",
+    "kuantitas" : 20,
+    "link" : "https://www.yellowblissroad.com/wp-content/uploads/2015/12/Crispy-Baked-BBQ-Chicken-Wings.jpg",
+    "nama" : "Karaage Spicy BBQ"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "57",
+    "id_toko" : "10",
+    "kuantitas" : 20,
+    "link" : "https://www.justonecookbook.com/wp-content/uploads/2014/06/Katsu-Curry.jpg",
+    "nama" : "Katsu Curry"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "58",
+    "id_toko" : "8",
+    "kuantitas" : 20,
+    "link" : "https://d3n8a8pro7vhmx.cloudfront.net/thugkitchen/pages/174/features/original/IMG_3784_clean_resize.jpg?1411709248",
+    "nama" : "Cucumber Orange Cooler"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "59",
+    "id_toko" : "8",
+    "kuantitas" : 20,
+    "link" : "http://images.media-allrecipes.com/userphotos/960x960/3758394.jpg",
+    "nama" : "Orange Supreme"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "60",
+    "id_toko" : "8",
+    "kuantitas" : 20,
+    "link" : "http://www.jambajuice.com/~/media/www/images/products/product/Veggie_Vitality.ashx",
+    "nama" : "Veggie Vitality"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "61",
+    "id_toko" : "9",
+    "kuantitas" : 20,
+    "link" : "http://www.jambajuice.com/~/media/www/images/products/product/TropicalGreen6-Lo.ashx",
+    "nama" : "Tropical Greens"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "62",
+    "id_toko" : "9",
+    "kuantitas" : 20,
+    "link" : "http://www.jambajuice.com/~/media/www/images/products/product/CitrusKick-6-Lo.ashx",
+    "nama" : "Citrus Kick"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "63",
+    "id_toko" : "9",
+    "kuantitas" : 20,
+    "link" : "http://www.jambajuice.com/~/media/www/images/products/product/Great_Greens.ashx",
+    "nama" : "Great Greens"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "64",
+    "id_toko" : "9",
+    "kuantitas" : 20,
+    "link" : "http://www.jambajuice.com/~/media/www/images/products/product/juices/OrangeJuice240.ashx",
+    "nama" : "Purely Orange"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "65",
+    "id_toko" : "9",
+    "kuantitas" : 20,
+    "link" : "https://cdn.idntimes.com/content-images/post/20171105/22858018-1940676312852339-4299156705884766208-n-b49750fd6f56cd9326de94b20f49450c.jpg",
+    "nama" : "Mango Calais"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "66",
+    "id_toko" : "9",
+    "kuantitas" : 20,
+    "link" : "http://www.jambajuice.com/~/media/www/images/products/product/juices/CarrotJuice596.ashx",
+    "nama" : "Purely Carrot"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "67",
+    "id_toko" : "9",
+    "kuantitas" : 20,
+    "link" : "http://www.jambajuice.com/~/media/www/images/products/product/OrangeCarrot438.ashx",
+    "nama" : "Orange Carrot Twist"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "68",
+    "id_toko" : "10",
+    "kuantitas" : 20,
+    "link" : "http://www.jambajuice.com/~/media/www/images/products/product/juices/OrangeBerryAntiOx582.ashx",
+    "nama" : "Orange Berry Antioxidant"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "69",
+    "id_toko" : "10",
+    "kuantitas" : 20,
+    "link" : "http://www.jambajuice.com/~/media/www/images/products/product/juices/KaleOrangePower-16-Lo.ashx",
+    "nama" : "Kale Orange Power"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "70",
+    "id_toko" : "10",
+    "kuantitas" : 20,
+    "link" : "http://www.jambajuice.com/~/media/www/images/products/product/juices/OrangeCarrotBanana.ashx",
+    "nama" : "Triple Revitalizer"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "71",
+    "id_toko" : "10",
+    "kuantitas" : 20,
+    "link" : "http://www.jambajuice.com/~/media/www/images/products/product/juices/TropicalKickstart.ashx",
+    "nama" : "Tropical Kick-Start"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "72",
+    "id_toko" : "8",
+    "kuantitas" : 20,
+    "link" : "http://www.resepumi.com/wp-content/uploads/2014/11/Resep-Martabak-Telor.jpg",
+    "nama" : "Martabak Daging Ayam"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "73",
+    "id_toko" : "8",
+    "kuantitas" : 20,
+    "link" : "https://i2.wp.com/www.resepayam.net/wp-content/uploads/2015/11/Martabak-telor.jpg?resize=348%2C272",
+    "nama" : "Martabak Daging Sapi"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "74",
+    "id_toko" : "8",
+    "kuantitas" : 20,
+    "link" : "https://img-global.cpcdn.com/003_recipes/2559528_7376c6645e704485/751x532cq70/photo.jpg",
+    "nama" : "Martabak Daging Sosis"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "75",
+    "id_toko" : "8",
+    "kuantitas" : 20,
+    "link" : "https://www.loveindonesia.com/images/recipe/555/photo.jpg",
+    "nama" : "Martabak Ikan Tuna"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "76",
+    "id_toko" : "8",
+    "kuantitas" : 20,
+    "link" : "https://2.bp.blogspot.com/-xcaszuxiXFA/VtduVZEVK8I/AAAAAAAAEjI/3E09YxGz4ZU/s1600/RESEP%2BPRAKTIS%2BMARTABAK%2BMINI%2BISI%2BKORNET%2BLEZAT.jpg",
+    "nama" : "Martabak Kornet"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "77",
+    "id_toko" : "8",
+    "kuantitas" : 20,
+    "link" : "http://www.laurentiadewi.com/uploads/P1050477-2.jpg",
+    "nama" : "Terang Bulan Campur Keju"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "78",
+    "id_toko" : "8",
+    "kuantitas" : 20,
+    "link" : "https://img-global.cpcdn.com/003_recipes/51f2fb35d3752b30/751x532cq70/photo.jpg",
+    "nama" : "Terang Bulan Coklat"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "79",
+    "id_toko" : "8",
+    "kuantitas" : 20,
+    "link" : "https://cdns.klimg.com/vemale.com/headline/650x325/2012/10/martabak-manis-terang-bulan-enak.jpg",
+    "nama" : "Terang Bulan Kacang"
+  }, {
+    "harga" : 4500,
+    "id_barang" : "80",
+    "id_toko" : "8",
+    "kuantitas" : 20,
+    "link" : "https://media.foody.id/res/g6/59196/prof/s/foody-mobile-martabak-manis-kuban-266-636022973566883559.jpg",
+    "nama" : "Terang Bulan Wijen"
+  } ],
+  "kategori" : [ {
+    "alamat" : "#",
+    "id_kategori" : "burger",
+    "link" : "https://www.tasteofhome.com/wp-content/uploads/2017/10/exps28800_UG143377D12_18_1b_RMS-696x696.jpg",
+    "nama" : "Burger"
+  }, {
+    "alamat" : "#",
+    "id_kategori" : "pizza",
+    "link" : "https://i.dailymail.co.uk/i/pix/2018/02/02/18/48D3379500000578-5345305-image-a-16_1517595669475.jpg",
+    "nama" : "Pizza"
+  }, {
+    "alamat" : "#",
+    "id_kategori" : "dessert",
+    "link" : "http://assets.kraftfoods.com/recipe_images/opendeploy/204595_640x428.jpg",
+    "nama" : "Dessert"
+  }, {
+    "alamat" : "#",
+    "id_kategori" : "ayam_bebek",
+    "link" : "https://www.inspiredtaste.net/wp-content/uploads/2011/12/Lavender-Honey-Chicken-Recipe-1200.jpg",
+    "nama" : "Ayam & Bebek"
+  }, {
+    "alamat" : "#",
+    "id_kategori" : "indian_arabian",
+    "link" : "https://img-vimbly-com-images.imgix.net/full_photos/arabian-food-5.jpg?fit=crop&h=490&ixlib=php-1.2.1&w=730",
+    "nama" : "Indian-Arabian Food"
+  }, {
+    "alamat" : "#",
+    "id_kategori" : "martabak_terangbulan",
+    "link" : "https://cdns.klimg.com/newshub.id/news/2016/08/13/90462/750x500-mencicipi-manisnya-terang-bulan-anak-presiden-160813k.jpg",
+    "nama" : "Martabak & Terang Bulan"
+  }, {
+    "alamat" : "#",
+    "id_kategori" : "soto",
+    "link" : "http://www.dapurkobe.co.id/wp-content/uploads/soto-ayam-panggang.jpg",
+    "nama" : "Soto"
+  }, {
+    "alamat" : "#",
+    "id_kategori" : "sate",
+    "link" : "https://img.okezone.com/content/2017/09/29/298/1785648/okezone-week-end-mitos-mitos-seputar-sate-yang-dipercaya-masyarakat-salah-satunya-lunturkan-susuk-j6QRikldbe.jpg",
+    "nama" : "Sate"
+  }, {
+    "alamat" : "#",
+    "id_kategori" : "japanese_korean",
+    "link" : "https://static01.nyt.com/images/2018/05/02/dining/02AUSTIN7/25AUSTIN7-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+    "nama" : "Japanese-Korean Food"
+  }, {
+    "alamat" : "#",
+    "id_kategori" : "chinese",
+    "link" : "https://purewows3.imgix.net/images/articles/2017_11/chinese-takeout-boxes-728.jpg?auto=format,compress&cs=strip",
+    "nama" : "Chinese Food"
+  }, {
+    "alamat" : "#",
+    "id_kategori" : "juice",
+    "link" : "https://s.doctoroz.com/recipe/Chia-Berries-Smoothie-720.jpg",
+    "nama" : "Juice & Smoothie"
+  }, {
+    "alamat" : "#",
+    "id_kategori" : "roti_bakar",
+    "link" : "http://nasikebulibangmoch.com/wp-content/uploads/2017/06/roti-bakar.jpg",
+    "nama" : "Roti Bakar"
+  }, {
+    "alamat" : "#",
+    "id_kategori" : "traditional",
+    "link" : "https://www.checkinjakarta.id/images/article/ARTICLE_1761_20170926093550_700_500.jpg",
+    "nama" : "Traditional Food"
+  }, {
+    "alamat" : "#",
+    "id_kategori" : "nasi_goreng",
+    "link" : "https://i2.wp.com/notepam.com/wp-content/uploads/2017/10/resep-nasi-goreng-spesial.jpg?resize=680%2C486",
+    "nama" : "Nasi Goreng"
+  }, {
+    "alamat" : "#",
+    "id_kategori" : "mie",
+    "link" : "https://media.foody.id/res/g13/128510/prof/s576x330/foody-upload-api-foody-mobile-bakmi-jpg-171122144809.jpg",
+    "nama" : "Bakmie"
+  }, {
+    "alamat" : "#",
+    "id_kategori" : "bakso",
+    "link" : "https://media.foody.id/res/g13/128510/prof/s576x330/foody-upload-api-foody-mobile-bakmi-jpg-171122144809.jpg",
+    "nama" : "Bakso"
+  }, {
+    "alamat" : "#",
+    "id_kategori" : "milkshake",
+    "link" : "https://img.buzzfeed.com/thumbnailer-prod-us-east-1/447e06b711e74daf95534d9ae500e413/BFV20935_Dairy-Free_Milkshakes_4_Ways-FB1080x1080.jpg?output-quality=60&resize=1000:*",
+    "nama" : "Milkshake"
+  } ],
+  "toko" : [ {
+    "alamat" : "Jl. Batanghari No.5, Rampal Celaket, Klojen, Kota Malang",
+    "buka_toko" : "08.00",
+    "id_toko" : "0",
+    "id_kategori" : "bakso",
+    "lat_toko" : "-7.961063",
+    "lng_toko" : "112.636727",
+    "nama_toko" : "Bakso Kota Cak Man",
+    "tutup_toko" : "16.00",
+    "fast_serve" : "1",
+    "favorite" : "1",
+    "link" : "https://img-global.cpcdn.com/003_recipes/62bc0149e02866d8/1200x630cq70/photo.jpg"
+  }, {
+    "alamat" : "JL. Raja Bugis No.47, Boro Bugis, Saptorenggo, Pakis, Malang",
+    "buka_toko" : "08.00",
+    "id_toko" : "1",
+    "id_kategori" : "sate",
+    "lat_toko" : "-7.951974",
+    "lng_toko" : "112.681771",
+    "nama_toko" : "Sate Landak Bu Ria",
+    "tutup_toko" : "16.00",
+    "fast_serve" : "0",
+    "favorite" : "0",
+    "link" : "https://ksmtour.com/media/images/articles8/sate-landak-bu-ria-malang.jpg"
+  }, {
+    "alamat" : "Pasar Besar Malang Lantai Dasar Unit B15 -16, Jalan Pasar Besar, Sukoharjo, Klojen",
+    "buka_toko" : "08.00",
+    "id_toko" : "2",
+    "id_kategori" : "traditional",
+    "lat_toko" : "-7.986307",
+    "lng_toko" : "112.633446",
+    "nama_toko" : "Warung Lama H. Ridwan",
+    "tutup_toko" : "16.00",
+    "fast_serve" : "1",
+    "favorite" : "1",
+    "link" : "https://ecs7.tokopedia.net/blog-tokopedia-com/uploads/2018/04/makanan-khas-Surabaya.jpg"
+  }, {
+    "alamat" : "Jl. Jenderal Basuki Rahmat No.5, Kauman, Klojen",
+    "buka_toko" : "08.00",
+    "id_toko" : "3",
+    "id_kategori" : "dessert",
+    "lat_toko" : "-7.980705",
+    "lng_toko" : "112.630331",
+    "nama_toko" : "Toko Oen Malang",
+    "tutup_toko" : "16.00",
+    "fast_serve" : "0",
+    "favorite" : "0",
+    "link" : "http://cerita.picmix.it/assets/file_upload/admin/images/Dari_Medan_Sampai_Surabaya,_Rekomendasi_Tempat_Legendaris_Menikmati_Es_Krim_Tempo_Dulu1.jpg"
+  }, {
+    "alamat" : "Jalan Pahlawan, Rejoagung, Kedungwaru, Kabupaten Tulungagung",
+    "buka_toko" : "08.00",
+    "id_toko" : "4",
+    "id_kategori" : "ayam_bebek",
+    "lat_toko" : "-8.041842",
+    "lng_toko" : "111.912027",
+    "nama_toko" : "Lodho Ayam Bu Endang",
+    "tutup_toko" : "16.00",
+    "fast_serve" : "1",
+    "favorite" : "1",
+    "link" : "https://img-global.cpcdn.com/003_recipes/8b8c80a18796eebb/1200x630cq70/photo.jpg"
+  }, {
+    "alamat" : "Jalan Borobudur No.65, Mojolangu, Kecamatan Lowokwaru, Kota Malang",
+    "buka_toko" : "08.00",
+    "id_toko" : "5",
+    "id_kategori" : "burger",
+    "lat_toko" : "-7.939013",
+    "lng_toko" : "112.633601",
+    "nama_toko" : "Burger Shot",
+    "tutup_toko" : "16.00",
+    "fast_serve" : "1",
+    "favorite" : "0",
+    "link" : "https://slevomat.sgcdn.cz/images/t/728x364c/66/74/6674348-0546cd.jpg"
+  }, {
+    "alamat" : "Jalan Panglima Sudirman No.71A, Klojen, Kesatrian",
+    "buka_toko" : "08.00",
+    "id_toko" : "6",
+    "id_kategori" : "traditional",
+    "lat_toko" : "-7.974232",
+    "lng_toko" : "112.638319",
+    "nama_toko" : "Rawon Rampal Malang",
+    "tutup_toko" : "16.00",
+    "fast_serve" : "1",
+    "favorite" : "0",
+    "link" : "https://2.bp.blogspot.com/-NjLNe9BpMc4/WoUl6eQ7DoI/AAAAAAAAAtY/8t22RD7Pt50QdVez8M3L1-7-pUFLE7OkgCEwYBhgL/s1600/cara-membuat-rawon.Jpeg"
+  }, {
+    "alamat" : "Jalan Mangun Sarkoro No. 25, Jodipan, Blimbing",
+    "buka_toko" : "08.00",
+    "id_toko" : "7",
+    "lat_toko" : "-7.985922",
+    "lng_toko" : "112.638180",
+    "id_kategori" : "chinese",
+    "nama_toko" : "Bakpao Boldy Malang",
+    "tutup_toko" : "16.00",
+    "fast_serve" : "1",
+    "favorite" : "1",
+    "link" : "http://cdn2.tstatic.net/bangka/foto/bank/images/bakpao_20171118_100019.jpg"
+  }, {
+    "alamat" : "Jl. Pulosari No.15, Gading Kasri, Klojen",
+    "buka_toko" : "08.00",
+    "id_toko" : "8",
+    "id_kategori" : "traditional",
+    "lat_toko" : "-7.974411",
+    "lng_toko" : "112.617483",
+    "nama_toko" : "Cafe Jagung Jaya Abadi Pulosari",
+    "tutup_toko" : "16.00",
+    "fast_serve" : "0",
+    "favorite" : "1",
+    "link" : "https://i0.wp.com/www.resepayam.net/wp-content/uploads/2017/12/jagung-bakar-keju.jpg"
+  }, {
+    "alamat" : "Ruko No.43 A-B, Jl. Kawi, Bareng, Klojen",
+    "buka_toko" : "08.00",
+    "id_toko" : "9",
+    "id_kategori" : "mie",
+    "lat_toko" : "-7.974977",
+    "lng_toko" : "112.617751",
+    "nama_toko" : "Resto Hot Cwie Mie Kawi Malang",
+    "tutup_toko" : "16.00",
+    "fast_serve" : "0",
+    "favorite" : "0",
+    "link" : "http://gldelapan.com/images/WATERMARK/201603/20048/cwie-mie-bakso-asin-manis.jpg"
+  }, {
+    "alamat" : "Jl. Dieng No.18, Gading Kasri, Klojen",
+    "buka_toko" : "08.00",
+    "id_toko" : "10",
+    "id_kategori" : "japanese_korean",
+    "lat_toko" : "-7.972986",
+    "lng_toko" : "112.614801",
+    "nama_toko" : "Saboten Dieng",
+    "tutup_toko" : "16.00",
+    "fast_serve" : "0",
+    "favorite" : "0",
+    "link" : "https://i.ndtvimg.com/i/2016-04/japanese-food-625_625x406_81461928658.jpg"
+  } ]
+}

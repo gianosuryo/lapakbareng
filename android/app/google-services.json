@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "890943721713",
+    "firebase_url": "https://lapak-bareng.firebaseio.com",
+    "project_id": "lapak-bareng",
+    "storage_bucket": "lapak-bareng.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890943721713:android:b1c3dc16d6ee520c",
+        "android_client_info": {
+          "package_name": "com.lapakbareng"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890943721713-io1gs0brdtop9h0hknsv4j9hqvh9hnh1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSK1wHkmkrJmbRJ5Sydj76q--kci2FLMM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890943721713:android:1d998300551a0981",
+        "android_client_info": {
+          "package_name": "com.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890943721713-tdhsoi0c8drjpl00hp6qqnonq55cdb7r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.myapp",
+            "certificate_hash": "231ee41507f5f6b146dfa856dbbbc80585a93530"
+          }
+        },
+        {
+          "client_id": "890943721713-io1gs0brdtop9h0hknsv4j9hqvh9hnh1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSK1wHkmkrJmbRJ5Sydj76q--kci2FLMM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890943721713-io1gs0brdtop9h0hknsv4j9hqvh9hnh1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
