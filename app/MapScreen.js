@@ -5,12 +5,8 @@ import {
   View,
   Image,
   TouchableOpacity,
-  KeyboardAvoidingView,
-  TouchableHighlight,
   Dimensions,
   ActivityIndicator,
-  TextInput,
-  Button,
   Alert
 } from 'react-native';
 
@@ -27,7 +23,7 @@ const ASPECT_RATIO = width/height
 const LATITUDE_DELTA = 0.0922
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO
  
-class MapScreen extends Component<{}> {
+class MapScreen extends Component {
   constructor(props){
     super(props)
 
@@ -65,8 +61,6 @@ class MapScreen extends Component<{}> {
 
     this.setLocation = this.setLocation.bind(this);
   }
-  
-  watchID: ?number = null;
 
   componentDidMount(){
     navigator.geolocation.getCurrentPosition((position) => {

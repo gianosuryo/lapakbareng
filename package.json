@@ -11,8 +11,8 @@
     "core-js": "^2.5.7",
     "firebase": "^4.6.2",
     "native-base": "^2.8.0",
-    "react": "16.5.0",
-    "react-native": "0.57.1",
+    "react": "16.3.1",
+    "react-native": "^0.57.3",
     "react-native-fast-image": "^4.0.14",
     "react-native-firebase": "^5.0.0",
     "react-native-geocoder": "^0.5.0",
@@ -29,7 +29,8 @@
     "babel-jest": "23.6.0",
     "jest": "23.6.0",
     "metro-react-native-babel-preset": "0.47.0",
-    "react-test-renderer": "16.5.0"
+    "react-test-renderer": "16.6.0-alpha.8af6728",
+    "schedule": "^0.4.0"
   },
   "jest": {
     "preset": "react-native"
