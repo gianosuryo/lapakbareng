@@ -16,10 +16,12 @@ import  { createStackNavigator, createSwitchNavigator, createBottomTabNavigator 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Login from './app/LoginScreen';
+import SetMap from './app/SetMapScreen'
 
 import Feed from './app/FeedScreen';
 import Cart from './app/CartScreen';
 import Kategori from './app/KategoriScreen';
+
 
 import Toko from './app/TokoScreen';
 import Barang from './app/BarangScreen';
@@ -125,6 +127,12 @@ Login.navigationOptions = ({navigation}) => {
   }
 }
 
+SetMap.navigationOptions = ({navigation}) => {
+  return{
+    headerStyle:{display:'none'}
+  }
+}
+
 HomeNavigation.navigationOptions = ({navigation}) => {
   return{
     headerStyle:{backgroundColor:'#fafffd',},
@@ -213,12 +221,14 @@ const AppStack = createStackNavigator({
   }
 });
 const AuthStack = createStackNavigator({ SignIn: Login });
+const SetMapStack = createStackNavigator({ SetMap: SetMap });
 
 const App = createSwitchNavigator(
   {
     AuthLoading: AuthLoadingScreen,
     App: AppStack,
     Auth: AuthStack,
+    DeclareLoc: SetMapStack
   },
   {
     initialRouteName: 'AuthLoading',

@@ -1,222 +1,287 @@
-import React, { Component } from 'react';
-import {
-	StyleSheet,
-	Dimensions
-} from 'react-native';
+import React from 'react';
+import {StyleSheet, Text, View, AsyncStorage, Image, Dimensions, TouchableOpacity, ActivityIndicator, Animated, Easing} from 'react-native';
+import firebase from './firebase';
+import {Container, Content, Header, Form, Input, Item, Button, Label, Icon} from 'native-base';
+import FastImage from 'react-native-fast-image'
 
-import { 
-	Container, 
-	Header, 
-	Content, 
-	Footer, 
-	FooterTab, 
-	Form,
-	Button,
-	Label,
-	Left,
-	Right,
-	Input, 
-	List, 
-	ListItem, 
-	Body,
-	Item, 
-	Icon, 
-	Text 
-} from 'native-base';
-import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
-
-const {width, height} = Dimensions.get('window');
-const ASPECT_RATIO = width/height
-const LATITUDE_DELTA = 0.0922
-const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO
-
-class DecideDestScreen extends Component {
-	constructor(props) {
-		super(props);
-		this.state= {
-			address_keyword: '',
-			addressItems:[
-				'Simon Mignolet',
-				'Nathaniel Clyne',
-				'Dejan Lovren',
-				'Mama Sakho',
-				'Emre Can'
-			],
-			initialPosition: {
-        latitude: 0,
-        longitude: 0,
-        latitudeDelta: 0,
-        longitudeDelta: 0
-      },
-      myPosition:{
-        latitude: 0,
-        longitude: 0,
-        latitudeDelta: 0,
-        longitudeDelta: 0
-      },
-      updatedPosition: {
-        latitude: 0,
-        longitude: 0,
-        latitudeDelta: 0,
-        longitudeDelta: 0
-      },
-      markerPosition: {
-        latitude: 0,
-        longitude: 0
-      },
-      initialAddressName : '',
-      distanceDestination: 0,
-      flag:0
-		}
-
-		this.setLocation = this.setLocation.bind(this);
-	}
-
-	componentDidMount(){
-    navigator.geolocation.getCurrentPosition((position) => {
-      var lat = parseFloat(position.coords.latitude)
-      var long = parseFloat(position.coords.longitude)
-
-      var initialRegion = {
-        latitude: lat,
-        longitude: long,
-        latitudeDelta: LATITUDE_DELTA,
-        longitudeDelta: LONGITUDE_DELTA
-      }
-
-      fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + initialRegion.latitude + ',' + initialRegion.longitude + '&key=AIzaSyAtQDGwiL_mgCbgKUdXAUN4f_HeWLd_MfE')
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this.setState({initialAddressName: responseJson.results[0].formatted_address})
-      })
-      .catch((error) => {
-        console.log(error);
-      })   
-
-      this.setState({initialPosition: initialRegion})
-      this.setState({myPosition: initialRegion})
-      this.setState({markerPosition: initialRegion})
-      this.setState({flag:1})
-    },
-    (error) => alert(error.message))
+export default class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state= {
+      email: '',
+      password: '',
+      userToken: '',
+      flag:true,
+      formFlag:false,
+    }
+    this.animatedValue = new Animated.Value(0)
   }
 
+  componentDidMount () {
+    this.onLoadAnimate()
+  }
+
+  signUpUser = () => {
+    this.setState({flag:false});
+  
+    try{
+      if(this.state.password.length < 6){
+        this.setState({flag:true});
+        alert("Please enter at least 6 characters !")
+        return;
+      }
+
+      firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(this.state.email, this.state.password)
+      .then(function(response){
+        return response;
+      })
+      .then((user) => {
+        this._signInAsync(user.uid);
+        this.setState({flag:true});
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        if (errorCode === 'auth/email-already-in-use') {
+          alert('Email already in use !');
+        } else {
+          alert(errorMessage);
+        }        
+        this.setState({flag:true});
+        console.log(error);
+      });
+    }catch(error){
+      this.setState({flag:true});  
+      console.log(error.toString())
+    }
+  }
+
+
+  loginUser = () => {
+    this.setState({flag:false});
+    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+    .then(function(response){
+      return response;  
+    })
+    .then((user) => {
+      this._signInAsync(user.user.uid);
+      alert(JSON.stringify(user.user.uid));
+      this.setState({flag:true});
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      if (errorCode === 'auth/wrong-password') {
+        alert('Wrong password.');
+      } else {
+        alert(errorMessage);
+      }        
+      this.setState({flag:true});
+      console.log(error);
+    });
+  }
+
+  _signInAsync = async (token) => {
+    const {navigate} = this.props.navigation;
+    await AsyncStorage.setItem('userToken', token);
+    this.props.navigation.navigate('DeclareLoc');
+  };
+
+  changeForm = () => {
+    this.onLoadAnimate()
+    this.setState({formFlag:!this.state.formFlag})
+  }
+
+  onLoadAnimate = () => {
+    this.animatedValue.setValue(0)
+    Animated.timing(
+      this.animatedValue,
+      {
+        toValue: 1,
+        duration: 1000,
+        easing: Easing.linear
+      }
+    ).start()
+  }
+ 
   render() {
-		return (
-			<Container style={styles.container}>
-				<Content>
-					<Form style={styles.searchForm}>
-						<Text style={styles.searchFormTitle}>Pilih alamat tujuan anda</Text>
-            <Item>
-              <Icon active name='search' active style={{ color: 'black', fontSize:15, bottom:-5 }} />
-              <Input
-								placeholder="Pilih lokasi anda"
-                style={{color:'black',fontSize:13, bottom:-5}} 
-                onChangeText={(address_keyword) => this.setState({address_keyword})}
+    const opacityIn = this.animatedValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: [0, 1]
+    });
+
+    const opacityOut = this.animatedValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: [1, 0]
+    });
+    
+    const widthHeader = Dimensions.get('window').width;
+    const heightHeader = widthHeader/2;
+
+    return (
+      <View style={styles.container}>
+        <FastImage
+          style={styles.imageBackground}
+          source={{
+            uri:'https://www.ocf.berkeley.edu/~sather/wp-content/uploads/2018/01/food--1200x600.jpg',
+            headers:{ Authorization: 'someAuthToken' },
+            priority: FastImage.priority.normal,
+          }}
+          resizeMode={FastImage.resizeMode.cover}
+        />
+        <View style={styles.formContainer}>
+          <View style={styles.logoContainer}>
+              <Image
+                source={{uri:'https://upload.wikimedia.org/wikipedia/commons/a/ab/Android_O_Preview_Logo.png'}}
+                style={styles.logoImage}
+              />
+          </View>
+          {this.state.formFlag &&     // Form Sign Up
+          <Animated.View 
+            style={{opacity:this.state.formFlag ? opacityIn : opacityOut, width:widthHeader*0.6, alignItems:'center', justifyContent:'center'}}
+            ref={'loginForm'}>
+            <Item style={{marginTop:40}}>
+              <Icon active name='mail' active style={{ color: '#fff', fontSize:15, bottom:-5, }} />
+              <Input 
+                placeholder="Email Address"
+                style={{color:'#fff',fontSize:11, textAlign:'center', bottom:-7}}
+                autoCorrect={false}
+                autoCapitalize="none"
+                keyboardType="email-address"
+                onChangeText={(email) => this.setState({email})}
               />
             </Item>
-          </Form>
 
-					<Form style={styles.mapForm}>
-						<MapView
-							//provider={PROVIDER_GOOGLE}
-							style={styles.map}
-							region={this.state.initialPosition}
-							loadingEnabled={true}
-							onRegionChangeComplete={(e) => {
-								var newRegion = {
-									latitude: e.latitude,
-									longitude: e.longitude,
-									latitudeDelta: e.latitudeDelta,
-									longitudeDelta: e.longitudeDelta
-								}
-								this.setState({initialPosition: newRegion})
-							}}
-							onPress={(e) => {
-								var newMarker = {
-									latitude: e.nativeEvent.coordinate.latitude,
-									longitude: e.nativeEvent.coordinate.longitude,
-								}
+            <Item>
+              <Icon active name='lock' active style={{ color: '#fff', fontSize:15, bottom:-5 }} />
+              <Input
+                placeholder="Password"
+                style={{color:'#fff',fontSize:11, textAlign:'center', bottom:-7}} 
+                secureTextEntry={true}
+                autoCorrect={false}
+                autoCapitalize="none"
+                onChangeText={(password) => this.setState({password})}
+              />
+            </Item>         
 
-								fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + newMarker.latitude + ',' + newMarker.longitude + '&key=AIzaSyASuh87T092TqQwAgpo8MJ5nf45y0v7bvg')
-								.then((response) => response.json())
-								.then((responseJson) => {
-									//console.log(JSON.stringify(responseJson.results[0].formatted_address));
-									this.setState({initialAddressName: responseJson.results[0].formatted_address})
-								})
-								.catch((error) => {
-									console.log(error);
-								})
+            <Button style={{marginTop:40, backgroundColor:'rgba(226, 153, 48, 0.7)', elevation:10}}
+              full
+              disabled={!this.state.flag}
+              onPress={() => this.loginUser()}
+              //onPress={() => this._onPressCart()}
+              >
+              {this.state.flag && 
+                <Text style={{color: 'white', fontSize:11, fontWeight:'bold'}}>LOG IN</Text>
+              }
 
-								fetch('https://maps.googleapis.com/maps/api/distancematrix/json?origins=-8.064680,111.900624' +  '&destinations=' + newMarker.latitude + ',' + newMarker.longitude + '&mode=driving' + '&key=AIzaSyASuh87T092TqQwAgpo8MJ5nf45y0v7bvg')
-								.then((response) => response.json())
-								.then((responseJson) => {
-									//console.log(JSON.stringify(responseJson.rows[0].elements[0].distance.value));
-									this.setState({distanceDestination: responseJson.rows[0].elements[0].distance.value})
-								})
-								.catch((error) => {
-									console.log(error);
-								})
-								this.setState({markerPosition: newMarker})
-							}}>
-
-							<MapView.Marker
-								coordinate={this.state.myPosition}>
-								<View style={styles.radius}>
-									<View style={styles.marker}>
-									</View>
-								</View>
-							</MapView.Marker>
-							<MapView.Marker
-								draggable
-								onDragEnd={(e) => this.setState({x: e.nativeEvent.coordinate})}
-								coordinate={this.state.markerPosition}>
-								<Image
-									source={require('./images/icons8_Map_Pin_50px.png')}
-									style={{width:35,height:35}}/>
-							</MapView.Marker>
-							<MapView.Marker
-								coordinate={this.state.lapakBarengPosition}>
-								<View style={styles.radius}>
-									<View style={styles.lapakBarengMarker}>
-									</View>
-								</View>
-							</MapView.Marker>
-						</MapView>
-          </Form>
-        </Content>
-        <Footer>
-          <FooterTab>
-            <Button full style={{backgroundColor:'orange'}}>
-              <Text>Save</Text>
+              {!this.state.flag && <ActivityIndicator/>}
+              
             </Button>
-          </FooterTab>
-        </Footer>
-			</Container>
-		);
-	}
+
+
+            <Text style={{color:'rgba(255,255,255,0.7)', fontSize:11, marginTop:40,}}>
+              <Text>Belum memiliki akun? </Text>
+                <Text onPress={() => this.changeForm()}>
+                  <Text>Silahkan daftar </Text>
+                  <Text style={{fontWeight:'bold'}}>disini</Text>
+                </Text>
+            </Text>
+          </Animated.View>
+          }
+
+          {!this.state.formFlag && // Form Sign Up
+          <Animated.View style={{opacity:this.state.formFlag ? opacityOut : opacityIn, width:widthHeader*0.6, alignItems:'center', justifyContent:'center'}}>
+            <Item style={{marginTop:40}}>
+              <Icon active name='mail' active style={{ color: '#fff', fontSize:15, bottom:-5, }} />
+              <Input 
+                placeholder="Email Address"
+                style={{color:'#fff',fontSize:11, textAlign:'center', bottom:-7}}
+                autoCorrect={false}
+                autoCapitalize="none"
+                keyboardType="email-address"
+                onChangeText={(email) => this.setState({email})}
+              />
+            </Item>
+
+            <Item>
+              <Icon active name='lock' active style={{ color: '#fff', fontSize:15, bottom:-5 }} />
+              <Input
+                placeholder="Password  (8 - 12 characters)"
+                style={{color:'#fff',fontSize:11, textAlign:'center', bottom:-7}} 
+                secureTextEntry={true}
+                autoCorrect={false}
+                autoCapitalize="none"
+                onChangeText={(password) => this.setState({password})}
+              />
+            </Item>
+            
+
+            <Button style={{marginTop:40, backgroundColor:'rgba(33, 124, 163, 0.7)', elevation:10}}
+              full
+              disabled={!this.state.flag}
+              onPress={() => this.signUpUser()}
+              >
+              {this.state.flag && 
+                <Text style={{color: 'white', fontSize:11, fontWeight:'bold'}}>SIGN UP</Text>
+              }
+
+              {!this.state.flag && <ActivityIndicator/>}
+            </Button>
+
+            <Text style={{color:'rgba(255,255,255,0.7)', fontSize:11, marginTop:40,}}>
+              <Text>Sudah memiliki akun?</Text>
+                <Text onPress={() => this.changeForm()}>
+                  <Text> Silahkan login</Text>
+                  <Text style={{fontWeight:'bold'}}> disini</Text>
+                </Text>
+            </Text>
+          </Animated.View>
+          }      
+        </View>
+      </View>
+    );
+  }
+  
 }
 
-const widthScreen = Dimensions.get('window').width;
-const heightScreen = Dimensions.get('window').height;
-
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor:'#eaeaea',
-	},
-	searchForm:{
-		backgroundColor:'white',
-		paddingVertical:15,
-		marginBottom:5
-	},
-	searchFormTitle:{
-		marginLeft:15,
-	},
-	resultForm:{
-		backgroundColor:'white',
-		paddingVertical:15,
-	}
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width:null,
+    height:null,
+  },
+  formContainer: {
+    backgroundColor: 'rgba(33, 31, 48, 0.9)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position:'absolute',
+    top:0,
+    bottom:0,
+    right:0,
+    left:0,
+    elevation:2
+  },
+  imageBackground:{
+    position:'absolute',
+    top:0,
+    bottom:0,
+    right:0,
+    left:0
+  },
+  logoContainer:{
+    alignItems:'center'
+  },
+  logoImage:{
+    width: 100,
+    height: 100,
+  },
+  logoName: {
+    color: 'white',
+    fontSize: 12,
+    marginTop: 15,
+    opacity: 1,
+    fontWeight:'bold'
+  }
 });
-
-export default DecideDestScreen;

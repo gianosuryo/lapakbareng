@@ -13,9 +13,8 @@ const getFromLocalStorage = async () => {
 
 export const fetch = async() => getFromLocalStorage();//
 
-export const setAddress = async(lat, lng, ongkos, alamat) => {
-  const newAddress = {lat, lng, ongkos, alamat};
-  //const formatAddress
+export const setAddress = async(lat, lng) => {
+  const newAddress = {lat, lng};
   saveToLocalStorage(newAddress);
 
   return newAddress;

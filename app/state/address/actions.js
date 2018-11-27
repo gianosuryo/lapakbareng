@@ -22,12 +22,10 @@ export const fetchAddressFailure = (error) => ({
     error
 })
 
-export const setAddress = (lat, lng, ongkos, alamat) => ({
+export const setAddress = (lat, lng) => ({
     type: SET_ADDRESS,
     lat, 
-    lng, 
-    ongkos, 
-    alamat
+    lng
 })
 export const setAddressSuccess = (address) => ({
     type: SET_ADDRESS_SUCCESS,

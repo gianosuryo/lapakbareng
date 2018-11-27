@@ -33,7 +33,7 @@ export function* fetchAddress(){
 
 export function* setAddress(action){
     try { 
-        const address = yield call(addressApi.setAddress, action.lat, action.lng, action.ongkos, action.alamat);
+        const address = yield call(addressApi.setAddress, action.lat, action.lng);
         yield put(setAddressSuccess(address));
     } catch(error){
         yield put(setAddressFailure(error));
