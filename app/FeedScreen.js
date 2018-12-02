@@ -54,6 +54,7 @@ class FeedScreen extends Component {
 	}
   
   componentDidMount(){
+		this.props.navigation.setParams({ stopPlay: this._stopAutoPlay });
     if(this.state.autoPlay) this._startAutoPlay()
 			else this._stopAutoPlay()
 	}

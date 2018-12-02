@@ -22,7 +22,7 @@ import {
 	Left,
 	Right,
 	Input, 
-	List, 
+	Title, 
 	ListItem, 
 	Body,
 	Item, 
@@ -32,6 +32,7 @@ import {
 
 import { connect } from 'react-redux';
 import {setAddress} from './state/address/actions';
+import Modal from 'react-native-modalbox'
 
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 
@@ -103,19 +104,25 @@ class SetMapScreen extends Component {
     let setPosition = this.state.markerPosition
     let lat = setPosition.latitude
     let lng = setPosition.longitude
+    this.props.setAddress(lat, lng);
+
+    this.props.navigation.goBack();
+    
+
+    /*
 		Alert.alert(
-			'Peringatan',
-			('Set lokasi ke : ' + "Jalan"),
+			'Are You Sure?',
+      ('Set lokasi ke : ' + lat + " " + lng),
+      
 			[
 			  {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
 			  {text: 'OK', onPress: () => {
-          this.props.navigation.navigate('App');
-          this.props.setAddress(lat, lng);
 				}
 			  },
 			],
 			{ cancelable: true }
-		  )
+      )
+      */
   }
   
   startMoveAnimation = () => {
@@ -161,14 +168,19 @@ class SetMapScreen extends Component {
     else {
     return (
 			<Container style={styles.container}>
-      
         <Header androidStatusBarColor='black' style={{backgroundColor:'#fafffd'}}>
-          <Body>
-            <Text style={styles.headerTitle}>Set Lokasi Antar</Text>
+          <Left style={{flex:0}}>
+            <Button transparent onPress={() => {this.refs.modalConfirm.open()}}>
+              <Icon active name='arrow-back' style={{color:'#342e37'}} />
+            </Button>
+          </Left>
+          <Body style={{flex:3, marginHorizontal:10}}>
+            <Text style={styles.headerTitle}>Lokasi</Text>
+            <Text style={styles.headerTitleSc}>Tentukan lokasi delivery anda</Text>
           </Body>
-          <Right>
-            <Button transparent onPress={() => {this.setLocation()}}>
-              <Text style={{color:'tomato'}}>Next</Text>
+          <Right style={{flex:0}}>
+            <Button transparent onPress={() => {this.refs.modalConfirm.open()}}>
+              <Icon active name='checkmark' style={{color:'#342e37'}} />
             </Button>
           </Right>
         </Header>
@@ -209,6 +221,34 @@ class SetMapScreen extends Component {
             />
           </Item>
         </Form>
+
+        <Modal 
+          style={styles.modalConfirm} 
+          position={"center"} 
+          swipeToClose={true}
+          ref={"modalConfirm"}>
+          <View style={{flex:1, width:'100%', justifyContent:'center', backgroundColor:'#fafffd'}}>
+            <Text style={{textAlign:'center', fontSize:16, fontWeight:'bold'}}>
+              Apakah anda yakin ?
+            </Text>  
+          </View>
+          <View style={{flex:2, width:'100%', justifyContent:'center'}}>
+            <Text style={{textAlign:'center'}}>
+              Set lokasi antar ke :
+            </Text>
+            <Text style={{color:'#655f68', fontSize:12, width:'100%', textAlign:'center'}}>
+              Jl. Abdul Fatah Barat No.34, Batangsaren, Kauman
+            </Text>
+          </View>
+          <View style={{flex:1, alignSelf:'flex-end', alignContent:'center', justifyContent:'space-between', flexDirection:'row', width:'100%', backgroundColor:'#fafffd'}}>
+            <Button transparent onPress={() => {this.refs.modalConfirm.close()}}>
+              <Icon active name='close' style={{color:'red'}} />
+            </Button>
+            <Button transparent onPress={() => {this.setLocation()}}>
+              <Icon active name='checkmark' style={{color:'green'}} />
+            </Button>
+          </View>
+        </Modal>
 			</Container>
     );
   }
@@ -234,8 +274,13 @@ const styles = StyleSheet.create({
 		backgroundColor:'#eaeaea',
   },
   headerTitle:{
-    color:'black',
-    marginLeft:10
+    color:'#342e37',
+    fontSize:16,
+    fontWeight:'bold',
+  },
+  headerTitleSc:{
+    color:'#655f68', 
+    fontSize:10
   },
 	searchForm:{
     position:'absolute',
@@ -263,6 +308,13 @@ const styles = StyleSheet.create({
     color: 'red', 
     fontSize:30, 
     marginBottom:50
+  },
+  modalConfirm:{
+    justifyContent:'center',
+    alignItems:'center',
+    width:300,
+    height:200,
+    paddingHorizontal:5
   }
 });
 

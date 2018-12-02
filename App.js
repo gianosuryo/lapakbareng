@@ -2,15 +2,23 @@ import React from 'react';
 import {
   ActivityIndicator,
   AsyncStorage,
-  Button,
   Image,
   StatusBar,
-  Text,
   StyleSheet,
   Dimensions,
   View,
   TouchableOpacity,
 } from 'react-native';
+
+import { 
+	Header, 
+	Button,
+	Left,
+	Right,
+	Body,
+	Icon, 
+	Text 
+} from 'native-base';
 
 import  { createStackNavigator, createSwitchNavigator, createBottomTabNavigator }  from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -136,19 +144,47 @@ SetMap.navigationOptions = ({navigation}) => {
 HomeNavigation.navigationOptions = ({navigation}) => {
   return{
     headerStyle:{backgroundColor:'#fafffd',},
+    header:(
+      <Header androidStatusBarColor='black' style={{backgroundColor:'#fafffd'}}>
+        <Left style={{flex:0}}>
+          <Button transparent onPress={() => {navigation.navigate('ReDeclareLoc')}}>
+            <Icon active name='pin' style={{color:'#342e37'}} />
+          </Button>
+        </Left>
+        <Body style={{flex:3, marginHorizontal:10}}>
+          <Text style={{fontWeight: 'bold',color:'#342e37', fontSize:16}}>Tulungagung</Text>
+          <Text style={{color:'#655f68', fontSize:10}}>Jl. Abdul Fatah Barat No.34, Batangsaren, Kauman</Text>
+        </Body>
+        <Right style={{flex:0}}>
+          <Button transparent onPress={() => {navigation.navigate('Options')}}>
+            <Icon active name='menu' style={{color:'#342e37'}} />
+          </Button>
+        </Right>
+      </Header>
+    )
+    /*headerLeft:(
+      <View style={{flexDirection:'row'}}>
+        <TouchableOpacity 
+          style={{paddingHorizontal:15}} 
+          onPress={() => navigation.navigate('ReDeclareLoc')}>
+          <Icon active name='pin' style={{color:'#342e37', fontSize:20}} />
+        </TouchableOpacity>
+      </View>
+    ),
+
     headerTitle:(
-      <Text style={{color:'#342e37', fontSize:13, marginLeft:15}}>
-        <Text>LAPAK </Text>
-        <Text style={{fontWeight: 'bold'}}>BARENG</Text>
-      </Text>
+      <View style={{flexDirection:'column'}}>
+        <Text style={{fontWeight: 'bold',color:'#342e37', fontSize:16}}>Tulungagung</Text>
+        <Text style={{color:'#655f68', fontSize:10}}>Jl. Abdul Fatah Barat No.34, Batangsaren, Kauman</Text>
+      </View>
     ),
     headerRight:(
       <View style={{flexDirection:'row'}}>
         <TouchableOpacity style={{paddingHorizontal:15}} onPress={() => navigation.navigate('Options')}>
-          <Ionicons name="ios-menu" size={25} color="#342e37" />
+          <Icon active name='menu' style={{color:'#342e37', fontSize:20}} />
         </TouchableOpacity>
       </View>
-    )
+    )*/
   }
 }
 
@@ -197,6 +233,10 @@ MapRoute.navigationOptions = ({navigation}) => {
 const AppStack = createStackNavigator({ 
   Home: {
     screen: HomeNavigation,
+    path:'home'
+  },
+  ReDeclareLoc: {
+    screen: SetMap,
     path:'home'
   }, 
   Options: {
