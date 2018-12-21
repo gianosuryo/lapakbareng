@@ -18,7 +18,7 @@ import FastImage from 'react-native-fast-image'
 
 /*
 */
-class TokoScreen extends Component<{}> { 
+class TokoScreen extends Component { 
   componentWillMount(){
     this.props.fetchToko();
   }
@@ -134,8 +134,9 @@ const styles = StyleSheet.create({
     height:140
 	},
   textToko:{
-    fontSize:14,
-    fontWeight:'bold'
+    color: '#342e37',
+		fontSize:15,
+		fontWeight:'100'
   },
   textAlamat:{
     fontSize:11,

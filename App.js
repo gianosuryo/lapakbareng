@@ -162,63 +162,50 @@ HomeNavigation.navigationOptions = ({navigation}) => {
         </Right>
       </Header>
     )
-    /*headerLeft:(
-      <View style={{flexDirection:'row'}}>
-        <TouchableOpacity 
-          style={{paddingHorizontal:15}} 
-          onPress={() => navigation.navigate('ReDeclareLoc')}>
-          <Icon active name='pin' style={{color:'#342e37', fontSize:20}} />
-        </TouchableOpacity>
-      </View>
-    ),
-
-    headerTitle:(
-      <View style={{flexDirection:'column'}}>
-        <Text style={{fontWeight: 'bold',color:'#342e37', fontSize:16}}>Tulungagung</Text>
-        <Text style={{color:'#655f68', fontSize:10}}>Jl. Abdul Fatah Barat No.34, Batangsaren, Kauman</Text>
-      </View>
-    ),
-    headerRight:(
-      <View style={{flexDirection:'row'}}>
-        <TouchableOpacity style={{paddingHorizontal:15}} onPress={() => navigation.navigate('Options')}>
-          <Icon active name='menu' style={{color:'#342e37', fontSize:20}} />
-        </TouchableOpacity>
-      </View>
-    )*/
   }
 }
 
 Toko.navigationOptions = ({navigation}) => {
   return{
     headerStyle:{backgroundColor:'#fafffd',},
-    headerTitle:(
-      <Text style={{color:'#342e37', fontSize:15, marginLeft:15}}>
-        <Text>{navigation.state.params.namaKategori}</Text>
-      </Text>
-    ),
+    header:(
+      <Header androidStatusBarColor='black' style={{backgroundColor:'#fafffd'}}>
+        <Left style={{flex:0}}>
+          <Button transparent onPress={() => {navigation.goBack()}}>
+            <Icon active name='arrow-back' style={{color:'#342e37'}} />
+          </Button>
+        </Left>
+        <Body style={{flex:3, marginHorizontal:10}}>
+          <Text style={{color:'#655f68', fontSize:10}}>Kategori</Text>
+          <Text style={{fontWeight: 'bold',color:'#342e37', fontSize:16}}>{navigation.state.params.namaKategori}</Text>
+        </Body>
+      </Header>
+    )
   }
 }
 
 Barang.navigationOptions = ({navigation}) => {
   return{
     headerStyle:{backgroundColor:'#fafffd',},
-    headerTitle:(
-      <Text style={{color:'#342e37', fontSize:13, marginLeft:15}}>
-        <Text>{navigation.state.params.namaToko}</Text>
-      </Text>
-    ),
+    header:(
+      <Header androidStatusBarColor='black' style={{backgroundColor:'#fafffd'}}>
+        <Left style={{flex:0}}>
+          <Button transparent onPress={() => {navigation.goBack()}}>
+            <Icon active name='arrow-back' style={{color:'#342e37'}} />
+          </Button>
+        </Left>
+        <Body style={{flex:3, marginHorizontal:10}}>
+          <Text style={{fontWeight: 'bold',color:'#342e37', fontSize:16}}>{navigation.state.params.namaToko}</Text>
+          <Text style={{color:'#655f68', fontSize:10}}>{navigation.state.params.alamatToko}</Text>
+        </Body>
+      </Header>
+    )
   }
 }
 
 Detail.navigationOptions = ({navigation}) => {
   return{
-    header:(
-      <View style={stylesDetail.item}>
-        <Image
-          source={{uri:navigation.state.params.linkBarang}}
-          style={stylesDetail.logo}/>
-      </View>
-    )
+    headerStyle:{display:'none'}
   }
 }
 
@@ -259,6 +246,10 @@ const AppStack = createStackNavigator({
     screen:MapRoute,
     path:'cart/maproute'
   }
+},
+{
+  initialRouteName:'Home',
+  //initialRouteParams:{namaKategori:"Ayam", idBarang: 0, namaBarang: "Ayam Lodho", hargaBarang:4500, namaToko:"Ayam Bakar Wong Solo", linkBarang:"https://3.bp.blogspot.com/-lDOHCAdaVW8/VrhXbFTaLeI/AAAAAAAADtA/gjG2ytD118I/s1600/Resep%2BAyam%2BLodho%2BKhas%2BPonorogo.jpg",alamatToko:'Jl. Sasdklj aslkj laksjd lkja sd'},
 });
 const AuthStack = createStackNavigator({ SignIn: Login });
 const SetMapStack = createStackNavigator({ SetMap: SetMap });

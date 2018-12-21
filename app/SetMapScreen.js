@@ -170,7 +170,7 @@ class SetMapScreen extends Component {
 			<Container style={styles.container}>
         <Header androidStatusBarColor='black' style={{backgroundColor:'#fafffd'}}>
           <Left style={{flex:0}}>
-            <Button transparent onPress={() => {this.refs.modalConfirm.open()}}>
+            <Button transparent onPress={() => {this.props.navigation.goBack()}}>
               <Icon active name='arrow-back' style={{color:'#342e37'}} />
             </Button>
           </Left>
@@ -227,12 +227,12 @@ class SetMapScreen extends Component {
           position={"center"} 
           swipeToClose={true}
           ref={"modalConfirm"}>
-          <View style={{flex:1, width:'100%', justifyContent:'center', backgroundColor:'#fafffd'}}>
+          <View style={{flex:1, width:'100%', justifyContent:'center', backgroundColor:'#e3ede9'}}>
             <Text style={{textAlign:'center', fontSize:16, fontWeight:'bold'}}>
               Apakah anda yakin ?
             </Text>  
           </View>
-          <View style={{flex:2, width:'100%', justifyContent:'center'}}>
+          <View style={{flex:2, width:'100%', justifyContent:'center', backgroundColor:'#fafffd'}}>
             <Text style={{textAlign:'center'}}>
               Set lokasi antar ke :
             </Text>
@@ -240,7 +240,7 @@ class SetMapScreen extends Component {
               Jl. Abdul Fatah Barat No.34, Batangsaren, Kauman
             </Text>
           </View>
-          <View style={{flex:1, alignSelf:'flex-end', alignContent:'center', justifyContent:'space-between', flexDirection:'row', width:'100%', backgroundColor:'#fafffd'}}>
+          <View style={{flex:1, alignSelf:'flex-end', alignContent:'center', justifyContent:'space-between', flexDirection:'row', width:'100%', backgroundColor:'#e3ede9'}}>
             <Button transparent onPress={() => {this.refs.modalConfirm.close()}}>
               <Icon active name='close' style={{color:'red'}} />
             </Button>

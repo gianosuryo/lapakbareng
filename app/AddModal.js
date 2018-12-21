@@ -17,7 +17,7 @@ import {
 
 import Modal from 'react-native-modalbox';
 
-export default class AddModal extends Component<{}> {
+export default class AddModal extends Component {
   constructor(props){
     super(props)
     this.state = {

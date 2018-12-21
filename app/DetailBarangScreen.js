@@ -2,40 +2,50 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  Text,
   View,
   Image,
 	TouchableOpacity,
 	Dimensions,
-	KeyboardAvoidingView,
-	ScrollView,
-	Button
 } from 'react-native';
+
+import {
+	Container, 
+	Header, 
+	Button,
+	Left,
+	Right,
+	Body,
+	Icon, 
+	Text, 
+	Content,
+	Footer
+} from 'native-base';
 
 import { connect } from 'react-redux';
 import {addToCart} from './state/cart/actions';
+import FastImage from 'react-native-fast-image';
 
-import AddModal from './AddModal';
-
-class DetailBarangScreen extends Component<{}> {
+class DetailBarangScreen extends Component {
 	constructor(props){
 		super(props);
-		this._onPressCart = this._onPressCart.bind(this);
+		this.state = {
+			kuantitas : 1,
+		}
 	}
 
 	prepareCart = (id, kuantitas) => {
-		alert("Anda menambahkan " + id + " sebanyak " + kuantitas);
 		this.props.addToCart(id, kuantitas);
-	}
-	
-	_onPressCart(idBarang, hargaBarang, stokBarang){
-		this.refs.addModal.showAddModal();
-		this.refs.addModal.setState({
-			id: idBarang,
-			harga : hargaBarang,
-			stok : stokBarang,
-		})
 		
+	}
+
+	addQuantity = () => {
+    this.setState({kuantitas: this.state.kuantitas + 1});
+  }
+
+  substractQuantity = () => {
+    if(this.state.kuantitas != 1){
+      this.setState({kuantitas: this.state.kuantitas - 1});
+		}
 	}
 
   render() {
@@ -44,46 +54,83 @@ class DetailBarangScreen extends Component<{}> {
 		const idbarang = params ? params.idBarang : null;
 		const namabarang = params ? params.namaBarang : null;
 		const hargabarang = params ? params.hargaBarang : null;
-		const kuantitasbarang = params ? params.kuantitasBarang : null;
+		const namatoko = params ? params.namaToko : null;
+		const alamattoko = params ? params.alamatToko : null;
 		const linkbarang = params ? params.linkBarang : null;
 
-
-		let screenWidth = Dimensions.get('window').width;
-		let screenHeight = Dimensions.get('window').height;
+		const totalBayar = this.state.kuantitas * hargabarang;
 		
     return (
-      <View style={styles.container}>
-        <AddModal
-					ref={'addModal'}
-					prepareCart={this.prepareCart}
-				/>
+			<Container style={styles.container}>
+					<Header androidStatusBarColor='black'  style={{backgroundColor:'#fafffd'}}>
+						<Left style={{flex:0}}>
+							<Button transparent onPress={() => {this.props.navigation.goBack()}}>
+								<Icon active name='arrow-back' style={{color:'#342e37'}} />
+							</Button>
+						</Left>
+						<Body style={{flex:3, marginHorizontal:10}}>
+							<Text style={styles.headerTitle}>{namatoko}</Text>
+							<Text style={styles.headerTitleSc}>{alamattoko}</Text>
+						</Body>
+						<Right/>
+					</Header>
+					<Content style={styles.content}>
+						<View style={styles.tabPic}>
+							<FastImage
+								style={styles.imageContainer}
+								source={{
+									uri:linkbarang,
+									priority: FastImage.priority.normal
+								}}
+								resizeMode={FastImage.resizeMode.cover}
+							/>
+						</View>
+						<View style={styles.tabPrime}>
+							<View style={styles.tabPrimeNama}>
+								<Text style={{fontSize:10}}>{namakategori.toUpperCase()}</Text>
+								<Text style={{fontSize:14,fontWeight:'bold'}}>{namabarang}</Text>
+							</View>
+							<View style={styles.tabPrimeHarga}>
+								<Text style={{fontSize:17, color:'#655f68'}}>{"Rp. " + (hargabarang * 1).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")}</Text>
+							</View>
+						</View>
+						<View style={styles.tabSecond}>
+							<Text style={{fontSize:13, color:'#655f68'}}>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire,</Text>
+						</View>
+						<View style={styles.tabThird}>
+							<Text style={{fontSize:14,fontWeight:'bold'}}>Jumlah Order</Text>
+							<Text style={{color:'#655f68', fontSize:10}}>Masukkan jumlah order dengan menekan tombol - atau +</Text>
+							<View style={styles.tabThirdKuantitas}>
+								<Button light rounded large onPress={() => this.substractQuantity()}><Text>  -  </Text></Button>
+								<Text style={{fontSize:35}}>{this.state.kuantitas}</Text>
+								<Button light rounded large onPress={() => this.addQuantity()}><Text>  +  </Text></Button>
+							</View>
+						</View>
+						<View style={styles.tabFourth}>
+							<Text style={{fontSize:14,fontWeight:'bold'}}>Total</Text>
+							<Text style={{color:'#655f68', fontSize:10}}>Total beli akan dimasukkan ke dalam keranjang</Text>
+							<Text style={{fontSize:40, height:100, fontWeight:'100', textAlign:'center', textAlignVertical:'center'}}>{"Rp. " + (totalBayar * 1).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")}</Text>
+						</View>
+					</Content>
+					
+					<Button block warning style={styles.buttonContainer} onPress={() => this.prepareCart(idbarang, this.state.kuantitas)}>
+						<Image style={styles.buttonLogo} source={require('./images/icons8_Shopping_Cart_32.png')}/>
+						<Text style={styles.buttonText}>Tambahkan Ke Keranjang</Text>
+					</Button>
 
-        <View style={styles.tabTop}>
-					<View style={styles.tabNamaBarang}>
-						<Text style={{fontSize:10}}>{namakategori.toUpperCase()}</Text>
-						<Text style={{fontSize:14,fontWeight:'bold'}}>{namabarang}</Text>
-					</View>
-					<View style={styles.tabHarga}>
-						<Text style={{fontSize:10}}>HARGA</Text>
-						<Text style={{fontSize:14,fontWeight:'bold'}}>Rp. {hargabarang}/pcs</Text>
-					</View>
-        </View>
+						{/* <TouchableOpacity onPress={() => this._onPressCart(idbarang, hargabarang, kuantitasbarang)}>
+							
+						</TouchableOpacity>
+						*/}
+			</Container>
 
-				<View style={styles.tabWarung}>
-					<Text style={{fontSize:14,fontWeight:'bold'}}>Warung Mc. Donald</Text>
-					<Text style={{fontSize:10}}>Jl. Raya Tulungagung, No. 4, Taman</Text>
-				</View>
-				<TouchableOpacity style={styles.buttonContainer} onPress={() => this._onPressCart(idbarang, hargabarang, kuantitasbarang)}>
-					<Image style={styles.buttonLogo} source={require('./images/icons8_Shopping_Cart_32.png')}/>
-					<Text style={styles.buttonText}>PESAN</Text>
-				</TouchableOpacity>
-				
-      </View>
 
     );
   }
 }
 
+let screenOneHeight = Dimensions.get('window').width/2;
+let screenHeight = Dimensions.get('window').height;
 const mapStateToProps = (state) => ({
 	
 });
@@ -92,52 +139,77 @@ const mapDispatchToProps = {
 	addToCart
 }
 
-const widthScreen = Dimensions.get('window').width;
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex:1
 	},
-  logo: {
-    width:30,
-    height:30
+	headerTitle:{
+    color:'#342e37',
+    fontSize:16,
+    fontWeight:'bold',
+  },
+  headerTitleSc:{
+    color:'#655f68', 
+    fontSize:10
+  },
+	content:{
+		flex:1
 	},
-	logoItem: {
-    width:'50%',
-		height:'50%',
+	tabPic:{
+		flex:3,
+		height:screenOneHeight
 	},
-	logoUtama: {
-    width:60,
-    height:30
+	imageContainer: {
+		width:'100%',
+		height:'100%'
 	},
-	imageScroll:{
-		backgroundColor:'#5f9ea0',
-		width:widthScreen,
-		height:widthScreen,
-		justifyContent:'center',
-		alignItems:'center'
-	},
-	tabTop:{
+	tabPrime:{
+		flex:1,
 		flexDirection:'row',
-		backgroundColor:'#f3f3f3',
 		alignItems:'center',
 		justifyContent:'space-between',
 		paddingHorizontal:15,
 		paddingVertical:10,
+		marginBottom:5,
+		borderBottomWidth: 0.5,
+		borderColor: '#e5e5e5'
 	},
-	tabWarung:{
+	tapPrimeNama:{
 		flexDirection:'column',
-		alignItems:'flex-start',
+	},
+	tapPrimeHarga:{
+		flexDirection:'column',
+	},
+	tabSecond:{
+		flex:2,
+		textAlign:'left',
 		paddingHorizontal:15,
 		paddingVertical:10,
+		marginBottom:5,
+		borderBottomWidth: 0.5,
+		borderColor: '#e5e5e5'
 	},
-	tabNamaBarang:{
-		flexDirection:'column',
-		alignItems:'flex-start',
+	tabThird:{
+		flex:6,
+		paddingHorizontal:15,
+		paddingVertical:10,
+		marginBottom:5,
+		borderBottomWidth: 0.5,
+		borderColor: '#e5e5e5'
 	},
-	tabHarga:{
-		flexDirection:'column',
-		alignItems:'flex-end',
+	tabThirdKuantitas:{
+		marginTop:15,
+		paddingHorizontal:20,
+		width:'100%',
+		flexDirection:'row',
+		alignItems:'center',
+		justifyContent:'space-between',
+	},
+	tabFourth:{
+		flex:1,
+		paddingHorizontal:15,
+		paddingVertical:10,
+		marginBottom:5,
 	},
 	buttonContainer : {
 		flexDirection:'row',
@@ -145,7 +217,10 @@ const styles = StyleSheet.create({
 		justifyContent:'center',
     paddingVertical:12,
 		paddingHorizontal:12,
-		backgroundColor:'#f9ba32',
+		position:'absolute',
+		bottom:0,
+		right:0,
+		left:0
 	},
 	buttonText : {
     textAlign: 'center',
@@ -165,12 +240,11 @@ const styles = StyleSheet.create({
 		paddingHorizontal:15,
 		paddingVertical:10,
 	},
-
 	textItem:{
 		fontSize:10,
 		fontWeight:'bold',
 		textAlign:'center'
-	}
+	},
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DetailBarangScreen);

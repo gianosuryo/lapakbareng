@@ -35,7 +35,7 @@ const {width, height} = Dimensions.get('window');
 const SCREEN_HEIGHT = height
 const SCREEN_WIDTH = width
 
-class CartScreen extends Component<{}> {
+class CartScreen extends Component {
 	constructor(props) {
     super(props);
     this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
@@ -83,36 +83,25 @@ class CartScreen extends Component<{}> {
 	}
 
 	cart.items.map(item =>	{
-		total = total + (item.product.harga * item.kuantitas);
+		total = total + (item.kuantitas * item.product.harga);
 	})
 	
 		
     return (
-      <View style={styles.container}>				
-				<View style={styles.tabTop}>
-					<View style={styles.tabOngkos}>
-						<Text style={{fontSize:10}}>Ongkos Kirim</Text>
-						<Text style={{fontSize:16,fontWeight:'bold'}}>{"Rp. " + (address.ongkos * 1).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")}</Text>
-						<Text style={{fontSize:10,fontWeight:'bold'}}>Tujuan : {address.alamat}</Text>
-					</View>
-					<TouchableOpacity style={styles.buttonLocation} onPress={() => this.props.navigation.navigate('Map')}>
-						<Text style={styles.buttonText}>SET LOCATION</Text>
-					</TouchableOpacity>
-				</View>
-				
+      <View style={styles.container}>							
 				<List 
 					dataSource={this.ds.cloneWithRows(cart.items)}
 					renderRow={(item, secId, index) => 
 						<ListItem style={styles.item}>
 							<Text style={styles.nomorItem}>{parseInt(index) + 1}</Text>
 							<Text style={styles.namaItem}>{item.product.nama}</Text>
-							<Text style={styles.hargaItem}>{item.product.harga}</Text>
+							<Text style={styles.hargaItem}>{"Rp. " + (item.product.harga * 1).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")}</Text>
 							<Text style={styles.qtyItem}>{item.kuantitas}</Text>
-							<Text style={styles.totalItem}>Rp. {item.product.harga * item.kuantitas}</Text>
+							<Text style={styles.totalItem}>{"Rp. " + ((item.product.harga * item.kuantitas) * 1).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")}</Text>
 						</ListItem>
 					}
 					renderLeftHiddenRow={item =>
-						<Button full onPress={() => alert(item.id)}>
+						<Button full onPress={() => alert(JSON.stringify(item))}>
 							<Icon active name="search" />
 						</Button>}
 					renderRightHiddenRow={(item) =>
@@ -146,13 +135,13 @@ class CartScreen extends Component<{}> {
   }
 }
 
-const getProductById = (products, id) => products.find(p => p.id === id);
+const getProductById = (products, id) => products.find(p => p.id_barang === id);
 
 const populateCartItems = (cart, products) => ({
 	...cart,
 	items: cart.items.map(item => ({
 		...item,
-		product: getProductById(products, item.id),
+		product: getProductById(products, item.id)
 	})),
 });
 

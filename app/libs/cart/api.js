@@ -8,7 +8,6 @@ const getFromLocalStorage = async () => {
 	const emptyCart = {items:[]};
   const cart = JSON.parse(await AsyncStorage.getItem('cart'));
   
-
 	return cart || emptyCart
 }
 

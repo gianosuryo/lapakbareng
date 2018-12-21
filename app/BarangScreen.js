@@ -18,7 +18,7 @@ import FastImage from 'react-native-fast-image'
 
 /*
 */
-class BarangScreen extends Component<{}> { 
+class BarangScreen extends Component { 
   componentWillMount(){
     this.props.fetchProducts();
   }
@@ -27,6 +27,8 @@ class BarangScreen extends Component<{}> {
   render() {
     const { params } = this.props.navigation.state;
     const idtoko = params ? params.idToko : null;
+    const namatoko = params ? params.namaToko : null;
+    const alamattoko = params ? params.alamatToko : null;
     const kategori = params ? params.namaKategori : null;
     const selectedProduct= [];
 
@@ -41,8 +43,6 @@ class BarangScreen extends Component<{}> {
       }
     }
 
-    //alert(JSON.stringify(selectedProduct));
-
     if (isProductsLoading) {
       return (
         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -56,20 +56,22 @@ class BarangScreen extends Component<{}> {
         <FlatList
 					data={selectedProduct}
 					renderItem={({item, index}) => (
-            <TouchableOpacity style={styles.item} onPress={() => this.props.navigation.navigate('Detail', {namaKategori:kategori, idBarang: item.id, namaBarang: item.nama, hargaBarang:item.harga, kuantitasBarang:item.kuantitas, linkBarang:item.link})}>
+            <TouchableOpacity style={styles.item} onPress={() => this.props.navigation.navigate('Detail', {namaKategori:kategori, idBarang: item.id_barang, namaBarang: item.nama, hargaBarang:item.harga, linkBarang:item.link, namaToko:namatoko, alamatToko:alamattoko})}>
+              <View style={styles.textNumbering}>
+                 <Text style={styles.textNumberingItem}>#{index+1}</Text>                  
+              </View>
+              <View style={styles.textPositioning}>
+                <Text style={styles.textPositioningItemNama}>{item.nama}</Text>                  
+                <Text style={styles.textPositioningItemHarga}>{"Rp. " + (item.harga * 1).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")}</Text>
+              </View>
               <FastImage
-                style={styles.image}
+                style={styles.imageContainer}
   							source={{
-                  //butuh 200x200
-                  //uri:item.link,
                   uri:item.link,
                   priority: FastImage.priority.normal
                 }}
                 resizeMode={FastImage.resizeMode.cover}
-								/>
-                <View style={styles.textPositioning}>
-                  <Text style={styles.textItem}>{item.nama}</Text>                  
-                </View>
+							/>
   					</TouchableOpacity>
 					)}
 					keyExtractor={
@@ -121,31 +123,6 @@ const styles = StyleSheet.create({
     width:30,
     height:30
     },
-  image: {
-    width:heightItem,
-    height:heightItem
-	},
-	logoItem: {
-    width:'50%',
-		height:'50%',
-	},
-	logoUtama: {
-    width:60,
-    height:30
-  },
-	tabKategori:{
-		flexDirection:'column',
-		elevation: 3,
-		backgroundColor:'#f3f3f3',
-		alignItems:'flex-start',
-		paddingHorizontal:15,
-		paddingVertical:10,
-	},
-	itemKategori:{
-        flex:1,
-		flexDirection:'row',
-		flexWrap:'wrap',
-	},
   item: {
     backgroundColor:'#fafafa',    
 		flexDirection:'row',
@@ -155,24 +132,41 @@ const styles = StyleSheet.create({
 		width:widthScreen,
     height:heightItem,
     borderWidth:0.5,
-		borderColor:'#e0e0e0'
-	},
-	textItem:{
-    fontSize:17,
-    marginBottom:2
+    borderColor:'#e0e0e0',
+    flex:1
   },
-  textToko:{
-    fontSize:9,
-    fontWeight:'bold'
+  textNumberingItem:{
+    fontSize:30,
+		fontWeight:'bold',
+    color:'#BAB5A2',
+    textAlign:'center'
   },
-  textAlamat:{
-    fontSize:9,
+  textNumbering:{
+    flexDirection:'column',
+    justifyContent:'center',    
+    flex:2
+  },
+  textPositioningItemNama:{
+    color: '#342e37',
+		fontWeight:'100',
+    fontSize:15,
+    textAlign:'left'
+  },
+  textPositioningItemHarga:{
+    fontSize:11,
+    color:'#342e37',
+    textAlign:'left'
   },
   textPositioning:{
     flexDirection:'column',
     justifyContent:'center',
-    marginLeft:15
-	}
+    flex:5
+  },
+  imageContainer: {
+    width:heightItem,
+    height:heightItem,
+    flex:3
+	},
 
 });
 
