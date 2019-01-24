@@ -10,6 +10,8 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+import { Root } from "native-base";
+
 import { 
 	Header, 
 	Button,
@@ -123,11 +125,12 @@ const HomeNavigation = createBottomTabNavigator({
       backgroundColor: '#fafffd',
     },
   },
-  initialRouteName:'Feed',
+  initialRouteName:'Cart',
 	lazy:true,
 	swipeEnabled:false,
 	animationEnabled:true
 })
+
 
 Login.navigationOptions = ({navigation}) => {
   return{
@@ -143,25 +146,7 @@ SetMap.navigationOptions = ({navigation}) => {
 
 HomeNavigation.navigationOptions = ({navigation}) => {
   return{
-    headerStyle:{backgroundColor:'#fafffd',},
-    header:(
-      <Header androidStatusBarColor='black' style={{backgroundColor:'#fafffd'}}>
-        <Left style={{flex:0}}>
-          <Button transparent onPress={() => {navigation.navigate('ReDeclareLoc')}}>
-            <Icon active name='pin' style={{color:'#342e37'}} />
-          </Button>
-        </Left>
-        <Body style={{flex:3, marginHorizontal:10}}>
-          <Text style={{fontWeight: 'bold',color:'#342e37', fontSize:16}}>Tulungagung</Text>
-          <Text style={{color:'#655f68', fontSize:10}}>Jl. Abdul Fatah Barat No.34, Batangsaren, Kauman</Text>
-        </Body>
-        <Right style={{flex:0}}>
-          <Button transparent onPress={() => {navigation.navigate('Options')}}>
-            <Icon active name='menu' style={{color:'#342e37'}} />
-          </Button>
-        </Right>
-      </Header>
-    )
+    headerStyle:{display:'none'}
   }
 }
 
@@ -202,6 +187,7 @@ Barang.navigationOptions = ({navigation}) => {
     )
   }
 }
+
 
 Detail.navigationOptions = ({navigation}) => {
   return{
@@ -349,5 +335,8 @@ const stylesDetail = StyleSheet.create({
 	},
 });
 
-export default App;
+export default () =>
+  <Root>
+    <App />
+  </Root>;
 //export default HomeNavigation;

@@ -8,6 +8,15 @@ import {
 	FlatList,
 } from 'react-native';
 
+import {
+	Header,  
+	Button, 
+	Left,
+	Body,
+	Right,
+	Icon
+} from 'native-base';
+
 import FastImage from 'react-native-fast-image'
 import { connect } from 'react-redux';
 import {fetchToko} from './state/toko/actions';
@@ -115,6 +124,23 @@ class FeedScreen extends Component {
 
 			return (
 				<View style={styles.container}>
+					{/*<Header androidStatusBarColor='black' style={{backgroundColor:'#fafffd'}}>
+						<Left style={{flex:0}}>
+							<Button transparent onPress={() => {this.props.navigation.navigate('ReDeclareLoc')}}>
+								<Icon active name='pin' style={{color:'#342e37'}} />
+							</Button>
+						</Left>
+						<Body style={{flex:3, marginHorizontal:10}}>
+							<Text style={{fontWeight: 'bold',color:'#342e37', fontSize:16}}>Tulungagung</Text>
+							<Text style={{color:'#655f68', fontSize:10}}>Jl. Abdul Fatah Barat No.34, Batangsaren, Kauman</Text>
+						</Body>
+						<Right style={{flex:0}}>
+							<Button transparent onPress={() => {navigation.navigate('Options')}}>
+								<Icon active name='menu' style={{color:'#342e37'}} />
+							</Button>
+						</Right>
+					</Header>
+					 */}
 					<ScrollView
 						showsVerticalScrollIndicator={false}>
 						<View style={styles.bannerContainer}>

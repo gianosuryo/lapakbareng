@@ -6,6 +6,7 @@ import {
   Image,
 	TouchableOpacity,
 	Dimensions,
+	Alert
 } from 'react-native';
 
 import {
@@ -18,6 +19,7 @@ import {
 	Icon, 
 	Text, 
 	Content,
+	Toast,
 	Footer
 } from 'native-base';
 
@@ -34,6 +36,11 @@ class DetailBarangScreen extends Component {
 	}
 
 	prepareCart = (id, kuantitas) => {
+		Toast.show({
+			text: 'Berhasil menambahkan!',
+			buttonText: 'Okay'
+		});
+			
 		this.props.addToCart(id, kuantitas);
 		
 	}
@@ -117,11 +124,6 @@ class DetailBarangScreen extends Component {
 						<Image style={styles.buttonLogo} source={require('./images/icons8_Shopping_Cart_32.png')}/>
 						<Text style={styles.buttonText}>Tambahkan Ke Keranjang</Text>
 					</Button>
-
-						{/* <TouchableOpacity onPress={() => this._onPressCart(idbarang, hargabarang, kuantitasbarang)}>
-							
-						</TouchableOpacity>
-						*/}
 			</Container>
 
 

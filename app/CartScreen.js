@@ -18,9 +18,12 @@ import {
 	Content, 
 	Button, 
 	List, 
-	ListItem
+	ListItem,
+	Left,
+	Body,
+	Right,
+	Icon
 } from 'native-base';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 import {connect} from 'react-redux';
 
@@ -61,6 +64,7 @@ class CartScreen extends Component {
 			{ cancelable: true }
 		  )
 	}
+
 	
   render() {
 	const {
@@ -88,32 +92,58 @@ class CartScreen extends Component {
 	
 		
     return (
-      <View style={styles.container}>							
-				<List 
-					dataSource={this.ds.cloneWithRows(cart.items)}
-					renderRow={(item, secId, index) => 
-						<ListItem style={styles.item}>
-							<Text style={styles.nomorItem}>{parseInt(index) + 1}</Text>
-							<Text style={styles.namaItem}>{item.product.nama}</Text>
-							<Text style={styles.hargaItem}>{"Rp. " + (item.product.harga * 1).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")}</Text>
-							<Text style={styles.qtyItem}>{item.kuantitas}</Text>
-							<Text style={styles.totalItem}>{"Rp. " + ((item.product.harga * item.kuantitas) * 1).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")}</Text>
-						</ListItem>
-					}
-					renderLeftHiddenRow={item =>
-						<Button full onPress={() => alert(JSON.stringify(item))}>
-							<Icon active name="search" />
-						</Button>}
-					renderRightHiddenRow={(item) =>
-						<Button full danger onPress={() => this.removeList(item.id)}>
-							<Text>Hapus</Text>
-						</Button>}
-					leftOpenValue={75}
-					rightOpenValue={-75}
-					scrollEnabled={true}	
-					>
-				</List>
+      <Container style={styles.container}>
+				<View androidStatusBarColor='black' style={styles.headerItem}>
+					<View style={{flex:0}}>
+						<Button transparent onPress={() => {this.props.navigation.navigate('ReDeclareLoc')}}>
+							<Icon active name='pin' style={{color:'#342e37'}} />
+						</Button>
+					</View>
+					<View style={{flex:3, marginHorizontal:10}}>
+						<Text style={{fontWeight: 'bold',color:'#342e37', fontSize:16}}>Tulungagung</Text>
+						<Text style={{color:'#655f68', fontSize:10}}>Jl. Abdul Fatah Barat No.34, Batangsaren, Kauman</Text>
+					</View>
+					<View style={{flex:0}}>
+						<Button transparent onPress={() => {this.props.navigation.navigate('Options')}}>
+							<Icon active name='menu' style={{color:'#342e37'}} />
+						</Button>
+					</View>
+				</View>							
+				<Content style={{backgroundColor:'#ffffff'}}>
+					<View style={styles.tabOngkir}>
+						<Text style={{fontSize:10}}>Ongkir</Text>
+						<Text style={{fontSize:16,fontWeight:'bold'}}>{"Rp. " + (total).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")}</Text>
+					</View>
+					
+					<List 
+						dataSource={this.ds.cloneWithRows(cart.items)}
+						renderRow={(item, secId, index) => 
+							<ListItem style={styles.item}>
+								<Text style={styles.nomorItem}>{parseInt(index) + 1}</Text>
+								<Text style={styles.namaItem}>{item.product.nama}</Text>
+								<Text style={styles.hargaItem}>{"Rp. " + (item.product.harga * 1).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")}</Text>
+								<Text style={styles.qtyItem}>{item.kuantitas}</Text>
+								<Text style={styles.totalItem}>{"Rp. " + ((item.product.harga * item.kuantitas) * 1).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")}</Text>
+							</ListItem>
+						}
+						renderLeftHiddenRow={item =>
+							<Button full onPress={() => alert(JSON.stringify(item))}>
+								<Icon active name="search" />
+							</Button>}
+						renderRightHiddenRow={(item) =>
+							<Button full danger onPress={() => this.removeList(item.id)}>
+								<Text>Hapus</Text>
+							</Button>}
+						leftOpenValue={75}
+						rightOpenValue={-75}
+						scrollEnabled={true}	
+						>
+					</List>
 
+					{/*
+					
+					*/}
+				</Content>			
 				<View style={styles.tabBottom}>
 					<View style={styles.tabBayar}>
 						<View style={styles.tabTotalBelanja}>
@@ -122,15 +152,11 @@ class CartScreen extends Component {
 						</View>
 						<View style={styles.tabTotalBayar}>
 							<Text style={{fontSize:10}}>Bayar</Text>
-							<Text style={{fontSize:16,fontWeight:'bold'}}>{"Rp. " + (total + address.ongkos).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")}</Text>
+							<Text style={{fontSize:16,fontWeight:'bold'}}>{"Rp. " + (total).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")}</Text>
 						</View>
 					</View>
-				
-					<TouchableOpacity style={styles.buttonKirim} onPress={() => this.props.navigation.navigate('Map')}>
-						<Text style={styles.buttonText}>KIRIM</Text>
-					</TouchableOpacity>
-				</View>			
-      </View>
+				</View>
+      </Container>
     );
   }
 }
@@ -166,18 +192,20 @@ const styles = StyleSheet.create({
   logo: {
     width:30,
     height:30
-  },
-	tabTop:{
-		flexDirection:'row',
-		backgroundColor:'#f3f3f3',
-		justifyContent: 'center', 
 	},
-	tabOngkos:{
+	headerItem:{
+		backgroundColor:'#fafffd',
+		elevation:2,
+		flexDirection:'row',
+		alignItems: 'center', 
+		padding:5
+	},
+	tabOngkir:{
 		flexDirection:'column',
 		alignItems:'flex-start',
-		width:SCREEN_WIDTH*0.75,
-		paddingHorizontal:15,
-    paddingVertical:7,
+		paddingHorizontal:20,
+		paddingVertical:10,
+		backgroundColor:'#ededed',
 	},
 	tabBottom:{
 		position: 'absolute',
@@ -195,15 +223,15 @@ const styles = StyleSheet.create({
 		flexDirection:'column',
 		alignItems:'flex-start',
 		width:SCREEN_WIDTH*0.5,
-		paddingHorizontal:15,
-    paddingVertical:7,
+		paddingHorizontal:20,
+		paddingVertical:10,
 	},
 	tabTotalBayar:{
 		flexDirection:'column',
 		alignItems:'flex-end',
 		width:SCREEN_WIDTH*0.5,
-		paddingHorizontal:15,
-    paddingVertical:7,
+		paddingHorizontal:20,
+		paddingVertical:10,
 	},
 	buttonLocation : {
 		backgroundColor: 'rgba(21, 214, 78, 1)',
@@ -273,27 +301,14 @@ const styles = StyleSheet.create({
 		fontWeight:'bold'
   },
   item: {
-		backgroundColor:'#ededed',
 		flexDirection:'row',
 		height:50,
-		elevation: 1,
 		alignItems:'center',
 		justifyContent:'space-between',
 		paddingHorizontal:15,
-		marginTop:1
-	},
-	bottomKonfirmasi:{
-		flexDirection:'row',
-		alignItems:'center',
-	},
-	buttonKonfirmasi:{
-		backgroundColor:'#0b8f6e',
-		marginHorizontal:0.1,
-		width:'50%',
-		alignItems:'center',
-		justifyContent:'center',
-		paddingHorizontal:15,
-		paddingVertical:17,
+		marginTop:1,
+		borderBottomWidth: 1,
+		borderColor: '#e5e5e5'
 	}
 });
 
